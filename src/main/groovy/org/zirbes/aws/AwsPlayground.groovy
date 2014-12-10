@@ -20,7 +20,6 @@ class AwsPlayground {
         String secretKey = System.getenv('AWS_SECRET_KEY')
 
         AWSCredentials creds = new BasicAWSCredentials(accessKey, secretKey)
-
         AmazonEC2 ec2 = new AmazonEC2Client(creds)
 
 
