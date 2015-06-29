@@ -13,15 +13,14 @@ import com.amazonaws.services.ec2.model.Image
 class AwsPlayground {
 
     void run() {
+        getAmiInfo()
+    }
 
-        String IMAGE_NAME = 'com.peoplenet.vehicle-entity-service-0.0.7-SNAPSHOT'
 
-        String accessKey = System.getenv('AWS_ACCESS_KEY')
-        String secretKey = System.getenv('AWS_SECRET_KEY')
+    void getAmiInfo() {
 
-        AWSCredentials creds = new BasicAWSCredentials(accessKey, secretKey)
-        AmazonEC2 ec2 = new AmazonEC2Client(creds)
-
+        String IMAGE_NAME = 'my-old-server-1.2.3'
+        AmazonEC2 ec2 = new AmazonEC2Client()
 
         Map<String, String> imageIds = [:]
 
@@ -34,10 +33,10 @@ class AwsPlayground {
 
         imageIds.each{ String imageId, String name ->
 
-            print "Deleting '${imageId}' (${name})..."
+            print "Not actually deleting '${imageId}' (${name})..."
             DeregisterImageRequest deregisterImageRequest = new DeregisterImageRequest().withImageId(imageId)
-            ec2.deregisterImage(deregisterImageRequest)
-            println 'done.'
+            // ec2.deregisterImage(deregisterImageRequest)
+            println 'skipped.'
         }
 
 
