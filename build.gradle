@@ -1,5 +1,6 @@
 apply plugin: "groovy"
 apply plugin: "application"
+apply plugin: "idea"
 
 mainClassName = 'org.zirbes.aws.Runner'
 
@@ -10,8 +11,13 @@ repositories {
 dependencies {
 
     compile 'org.codehaus.groovy:groovy-all:2.4.2'
-    compile 'com.amazonaws:aws-java-sdk:1.10.2'
     compile 'com.fasterxml.jackson.core:jackson-core:2.5.4'
+
+    compile 'com.amazonaws:aws-java-sdk:1.10.2'
+
+    compile 'com.amazonaws:amazon-kinesis-producer:0.9.0'
+    compile 'com.amazonaws:amazon-kinesis-client:1.4.0'
+    
 
     compile 'joda-time:joda-time:2.8.1'
 
