@@ -5,7 +5,7 @@ apply plugin: "idea"
 mainClassName = 'org.zirbes.aws.Runner'
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {

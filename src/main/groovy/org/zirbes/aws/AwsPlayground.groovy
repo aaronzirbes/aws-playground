@@ -1,6 +1,7 @@
 package org.zirbes.aws
 
 import com.amazonaws.auth.AWSCredentials
+import com.amazonaws.auth.AWSCredentialsProvider
 import com.amazonaws.auth.profile.ProfileCredentialsProvider
 import com.amazonaws.services.sqs.model.Message
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -12,11 +13,14 @@ class AwsPlayground {
 
     ObjectMapper objectMapper = new ObjectMapper()
 
-    AWSCredentials creds = new ProfileCredentialsProvider().credentials
+    AWSCredentialsProvider credProvider = new ProfileCredentialsProvider()
+
 
     void run() {
+        AWSCredentials creds = credProvider.credentials
         //new Ec2Demo(creds).getAmiInfo()
         //new SqsDemo(creds).sendSqsMessage()
+        new KinesisDemo(credProvider).sendMessageRoundTrip()
     }
 
 }
