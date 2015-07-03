@@ -20,7 +20,8 @@ class AwsPlayground {
         AWSCredentials creds = credProvider.credentials
         //new Ec2Demo(creds).getAmiInfo()
         //new SqsDemo(creds).sendSqsMessage()
-        new KinesisDemo(credProvider).sendMessageRoundTrip()
+        //new KinesisDemo(credProvider).sendMessageRoundTrip()
+        new KinesisDumper(credProvider).dump()
     }
 
 }
